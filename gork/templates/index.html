@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kafka Producer</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .form-container { max-width: 600px; margin: auto; }
+        input[type="text"] { width: 100%; padding: 8px; margin: 5px 0; }
+        input[type="submit"] { padding: 10px 20px; background: #4CAF50; color: white; border: none; }
+        .message { color: green; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Produce Kafka Message</h2>
+        <form method="post" action="/produce">
+            <label for="key">Key:</label>
+            <input type="text" id="key" name="key" required>
+            <label for="value">Value:</label>
+            <input type="text" id="value" name="value" required>
+            <input type="submit" value="Submit">
+        </form>
+        {% if message %}
+            <p class="message">{{ message }}</p>
+        {% endif %}
+        <p><a href="/consume">View Recent Messages</a></p>
+        <p><a href="/old-messages">View Old Messages</a></p>
+    </div>
+</body>
+</html>
